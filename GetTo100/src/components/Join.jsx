@@ -1,5 +1,5 @@
 function Join() {
-    return (  );
+  return;
 }
 
 export default Join;
