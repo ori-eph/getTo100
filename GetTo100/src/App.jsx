@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Board from "./components/Board";
 
 function App() {
+  const [currentUsers, setCurrentUsers] = useState([]);
   const [showing, setShowing] = useState(false);
   function toggleShow() {
     setShowing((showing) => !showing);
@@ -11,7 +12,7 @@ function App() {
   return (
     <>
       <Header toggleShow={toggleShow} showing={showing} />
-      <Board />
+      <Board currentUsers={currentUsers} setCurrentUsers={setCurrentUsers} />
     </>
   );
 }
