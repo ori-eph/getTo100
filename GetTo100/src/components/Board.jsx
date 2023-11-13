@@ -6,8 +6,8 @@ function Board(props) {
   const gamesJsx = props.playingUsers.map((user, index) => {
     if (user === null) {
       return (
-        <div id={`game${index}`} className="emptyGame" key={index}>
-          no player yet...
+        <div id={`game${index}`} className="game-div emptyGame" key={index}>
+          <h1>no player yet...</h1>
         </div>
       );
     }
