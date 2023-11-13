@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function Game(props) {
   const [user, setUser] = useState(props.user);
+  const [didWin, setDidWin] = useState(false);
   let movesText = user.moves == 1 ? "move" : "moves";
   return (
     <div id={props.id} className="game-div">
@@ -29,6 +30,23 @@ function Game(props) {
           }}
         >
           Quit
+        </button>
+        <button
+          onClick={() => {
+            const number = Math.floor(Math.random() * 100);
+            console.log(number);
+            // setUser((prev) => {
+            //   return {
+            //     ...prev,
+            //     startingNumber: number,
+            //     currentNumber: number,
+            //     moves: 0,
+            //   };
+            // });
+          }}
+          style={didWin ? { display: "inline" } : { display: "none" }}
+        >
+          New Game
         </button>
       </div>
     </div>

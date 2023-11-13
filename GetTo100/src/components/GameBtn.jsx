@@ -18,7 +18,6 @@ function GameBtn(props) {
   function doAction(oparator, number) {
     switch (oparator) {
       case "/":
-        console.log(props.user);
         props.setUser((prev) => {
           let current = findCurrent(prev);
           let prevMoves = findPrevMoves(prev);
