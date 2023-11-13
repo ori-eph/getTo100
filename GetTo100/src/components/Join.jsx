@@ -7,15 +7,17 @@ function Join(props) {
   const [validationMsg, setValidationMsg] = useState("");
 
   function submitForm() {
+    const users = JSON.parse(localStorage.getItem("users"));
+    users.lastId++;
     const newUser = {
       username,
       password,
       active: true,
       scores: null,
+      id: users.lastId,
     };
 
-    const users = JSON.parse(localStorage.getItem("users"));
-    users.push(newUser);
+    users.list.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
     props.toggle();
@@ -27,7 +29,7 @@ function Join(props) {
       setValidationMsg("u must fill both fields.");
       return;
     }
-    const users = JSON.parse(localStorage.getItem("users"));
+    const users = JSON.parse(localStorage.getItem("users")).list;
     for (const user of users) {
       if (user.username === username) {
         setValidationMsg("user already exists.");
