@@ -4,17 +4,43 @@ import "../css/Join.css";
 function Join(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [validationMsg, setValidationMsg] = useState("");
 
-  function submitForm(e) {
-    e.preventDefault();
+  function submitForm() {
+    const newUser = {
+      username,
+      password,
+      active: true,
+      scores: null,
+    };
+
+    const users = JSON.parse(localStorage.getItem("users"));
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
 
     props.toggle();
+  }
+
+  function validateForm(e) {
+    e.preventDefault();
+    if (!username || !password) {
+      setValidationMsg("u must fill both fields.");
+      return;
+    }
+    const users = JSON.parse(localStorage.getItem("users"));
+    for (const user of users) {
+      if (user.username === username) {
+        setValidationMsg("user already exists.");
+        return;
+      }
+    }
+    submitForm();
   }
 
   return (
     <div className="popup">
       <div className="popup-inner">
-        <form className="join-form" onSubmit={submitForm}>
+        <form className="join-form" onSubmit={validateForm}>
           <h2>Join</h2>
           <input
             type="text"
@@ -32,9 +58,15 @@ function Join(props) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <p
+            // style={{ display: validationMsg ? "" : "none" }}
+            className="validationMsg"
+          >
+            {validationMsg}
+          </p>
           <button type="submit">Submit</button>
         </form>
-        <button onClick={props.toggle}>X</button>
+        <button onClick={props.toggle}>✗</button>
       </div>
     </div>
   );
