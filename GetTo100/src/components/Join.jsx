@@ -19,13 +19,25 @@ function Join(props) {
 
     users.list.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
-    props.setCurrentUsers((users) => {
+
+    props.setPlayingUsers((users) => {
       const number = Math.floor(Math.random() * 100);
-      return [
-        ...users,
-        { ...newUser, startingNumber: number, currentNumber: number, moves: 0 },
-      ];
+      const updatedUser = {
+        ...newUser,
+        startingNumber: number,
+        currentNumber: number,
+        moves: 0,
+      };
+
+      const index = users.findIndex((user) => user === null);
+
+      if (index !== -1) {
+        users[index] = updatedUser;
+      }
+
+      return users;
     });
+
     props.toggle();
   }
 
@@ -66,12 +78,7 @@ function Join(props) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <p
-            // style={{ display: validationMsg ? "" : "none" }}
-            className="validationMsg"
-          >
-            {validationMsg}
-          </p>
+          <p className="validationMsg">{validationMsg}</p>
           <button type="submit">Submit</button>
         </form>
         <button onClick={props.toggle}>✗</button>

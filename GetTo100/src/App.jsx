@@ -4,7 +4,8 @@ import Header from "./components/Header";
 import Board from "./components/Board";
 
 function App() {
-  const [currentUsers, setCurrentUsers] = useState([]);
+  const [playingUsers, setPlayingUsers] = useState([null, null, null, null]);
+
   function resetLocalStorage() {
     if (!localStorage.getItem("users")) {
       const users = {
@@ -25,10 +26,10 @@ function App() {
       <Header
         toggleShow={toggleShow}
         showing={showing}
-        playingUsers={currentUsers}
-        setCurrentUsers={setCurrentUsers}
+        playingUsers={playingUsers}
+        setPlayingUsers={setPlayingUsers}
       />
-      <Board playingUsers={currentUsers} setPlayingUsers={setCurrentUsers} />
+      <Board playingUsers={playingUsers} setPlayingUsers={setPlayingUsers} />
     </>
   );
 }

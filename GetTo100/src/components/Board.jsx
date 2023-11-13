@@ -3,30 +3,27 @@ import Game from "./Game";
 import ScoreBoard from "./ScoreBoard";
 
 function Board(props) {
+  const gamesJsx = props.playingUsers.map((user, index) => {
+    if (user === null) {
+      return (
+        <div id={`game${index}`} className="game-div emptyGame" key={index}>
+          <h1>no player yet...</h1>
+        </div>
+      );
+    }
+    return (
+      <Game
+        key={user.id}
+        id={`game${index}`}
+        setPlayingUsers={props.setPlayingUsers}
+        user={user}
+        index={index}
+      />
+    );
+  });
   return (
     <div id="board-grid">
-      <Game
-        id="game1"
-        playingUsers={props.playingUsers}
-        userId={
-          props.playingUsers.length > 0 ? props.playingUsers[0].id : "none"
-        }
-      />
-      <Game
-        id="game2"
-        playingUsers={props.playingUsers}
-        userId={props.playingUsers[1] > 1 ? props.playingUsers[1].id : "none"}
-      />
-      <Game
-        id="game3"
-        playingUsers={props.playingUsers}
-        userId={props.playingUsers[2] > 2 ? props.playingUsers[2].id : "none"}
-      />
-      <Game
-        id="game4"
-        playingUsers={props.playingUsers}
-        userId={props.playingUsers[3] > 3 ? props.playingUsers[3].id : "none"}
-      />
+      {gamesJsx}
       <ScoreBoard id="scores" />
     </div>
   );

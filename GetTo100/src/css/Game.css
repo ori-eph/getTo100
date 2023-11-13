@@ -3,3 +3,12 @@ btns-flex {
   justify-content: center;
   align-items: center;
 }
+
+.game-div {
+  margin: auto;
+  text-align: center;
+  height: 37vh;
+  width: 30vw;
+  border: 1px solid black;
+  border-radius: 10px;
+}
