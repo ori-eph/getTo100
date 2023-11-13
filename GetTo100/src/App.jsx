@@ -22,7 +22,12 @@ function App() {
   }
   return (
     <>
-      <Header toggleShow={toggleShow} showing={showing} />
+      <Header
+        toggleShow={toggleShow}
+        showing={showing}
+        playingUsers={currentUsers}
+        setCurrentUsers={setCurrentUsers}
+      />
       <Board playingUsers={currentUsers} setPlayingUsers={setCurrentUsers} />
     </>
   );
