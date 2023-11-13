@@ -10,6 +10,7 @@ function GameBtn(props) {
   function doAction(oparator, number) {
     switch (oparator) {
       case "/":
+        console.log(props.user);
         props.setUser((prev) => {
           let current = findCurrent(prev);
           return {
@@ -17,6 +18,7 @@ function GameBtn(props) {
             currentNumber: Math.floor(current / number),
           };
         });
+        console.log(props.user);
         props.setPlayingUsers((prev) => [
           ...prev.slice(0, props.index),
           props.user,
