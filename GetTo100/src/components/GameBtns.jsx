@@ -1,15 +1,42 @@
-function GameBtns(props) {
-  function doAction(oparator, number) {
-    switch (oparator) {
-      case "/":
-        return () => {};
-    }
-  }
+import GameBtn from "./GameBtn";
+import "../css/Game.css";
 
+function GameBtns(props) {
   return (
-    <button
-      onClick={() => doAction(props.oparator, props.number)}
-    >{`${props.oparator}${props.oparator}`}</button>
+    <div className="btns-flex">
+      <GameBtn
+        setPlayingUsers={props.setPlayingUsers}
+        setUser={props.setUser}
+        number={2}
+        user={props.user}
+        index={props.index}
+        oparator="/"
+      />
+      <GameBtn
+        setPlayingUsers={props.setPlayingUsers}
+        setUser={props.setUser}
+        number={2}
+        user={props.user}
+        index={props.index}
+        oparator="*"
+      />
+      <GameBtn
+        setPlayingUsers={props.setPlayingUsers}
+        setUser={props.setUser}
+        number={1}
+        user={props.user}
+        index={props.index}
+        oparator="+"
+      />
+      <GameBtn
+        index={props.index}
+        setPlayingUsers={props.setPlayingUsers}
+        setUser={props.setUser}
+        number={1}
+        user={props.user}
+        oparator="-"
+      />
+    </div>
   );
 }
 
