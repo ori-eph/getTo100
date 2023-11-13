@@ -22,6 +22,14 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber / 2 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, props.user.moves],
+            };
+          });
+        }
         break;
       case "*":
         props.setUser((prev) => {
@@ -36,6 +44,14 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber * 2 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, props.user.moves],
+            };
+          });
+        }
         break;
       case "+":
         props.setUser((prev) => {
@@ -50,6 +66,17 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber + 1 === 100) {
+          console.log("hi");
+        }
+        if (props.user.currentNumber + 1 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, props.user.moves],
+            };
+          });
+        }
         break;
       case "-":
         props.setUser((prev) => {
@@ -64,6 +91,14 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber - 1 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, props.user.moves],
+            };
+          });
+        }
         break;
     }
   }

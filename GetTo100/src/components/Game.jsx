@@ -3,22 +3,6 @@ import { useState } from "react";
 
 function Game(props) {
   const [user, setUser] = useState(props.user);
-  //   if (props.user.id === "none") {
-  //     return (
-  //       <div id={props.id} className="game-div">
-  //         <h3>No player yet</h3>
-  //       </div>
-  //     );
-  //   }
-  //   function getUserById(id) {
-  //     for (let i = 0; i < props.playingUsers.length; i++)
-  //       if (props.playingUsers[i].id === id) {
-  //         return i;
-  //       }
-  //     return false;
-  //   }
-  //   const user = props.playingUsers[getUserById(props.userId)];
-  //   props.playingUsers.map();
   return (
     <div id={props.id} className="game-div">
       <div className="game-section">
@@ -26,6 +10,7 @@ function Game(props) {
         <h3>{user.startingNumber}</h3>
         <h1>{user.currentNumber}</h1>
         <h3>{user.moves}</h3>
+        <h4>{user.scores}</h4>
         <GameBtns
           index={props.index}
           setUser={setUser}
