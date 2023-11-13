@@ -1,30 +1,14 @@
 function GameBtn(props) {
-  function findCurrent(prev) {
-    for (const key in prev) {
-      if (key === "currentNumber") {
-        return prev[key];
-      }
-    }
-  }
-  function findPrevMoves(prev) {
-    for (const key in prev) {
-      if (key === "moves") {
-        return prev[key];
-      }
-    }
-  }
-
   console.log(props.user);
+
   function doAction(oparator, number) {
     switch (oparator) {
       case "/":
         props.setUser((prev) => {
-          let current = findCurrent(prev);
-          let prevMoves = findPrevMoves(prev);
           return {
             ...prev,
-            currentNumber: Math.floor(current / number),
-            moves: prevMoves + 1,
+            currentNumber: Math.floor(prev.currentNumber / number),
+            moves: prev.moves + 1,
           };
         });
         props.setPlayingUsers((prev) => [
@@ -32,15 +16,21 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber / 2 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, prev.moves],
+            };
+          });
+        }
         break;
       case "*":
         props.setUser((prev) => {
-          let current = findCurrent(prev);
-          let prevMoves = findPrevMoves(prev);
           return {
             ...prev,
-            currentNumber: Math.floor(current * number),
-            moves: prevMoves + 1,
+            currentNumber: Math.floor(prev.currentNumber * number),
+            moves: prev.moves + 1,
           };
         });
         props.setPlayingUsers((prev) => [
@@ -48,15 +38,21 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber * 2 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, prev.moves],
+            };
+          });
+        }
         break;
       case "+":
         props.setUser((prev) => {
-          let current = findCurrent(prev);
-          let prevMoves = findPrevMoves(prev);
           return {
             ...prev,
-            currentNumber: Math.floor(current + number),
-            moves: prevMoves + 1,
+            currentNumber: Math.floor(prev.currentNumber + number),
+            moves: prev.moves + 1,
           };
         });
         props.setPlayingUsers((prev) => [
@@ -64,15 +60,21 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber + 1 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, prev.moves],
+            };
+          });
+        }
         break;
       case "-":
         props.setUser((prev) => {
-          let current = findCurrent(prev);
-          let prevMoves = findPrevMoves(prev);
           return {
             ...prev,
-            currentNumber: Math.floor(current - number),
-            moves: prevMoves + 1,
+            currentNumber: Math.floor(prev.currentNumber - number),
+            moves: prev.moves + 1,
           };
         });
         props.setPlayingUsers((prev) => [
@@ -80,6 +82,14 @@ function GameBtn(props) {
           props.user,
           ...prev.slice(props.index + 1),
         ]);
+        if (props.user.currentNumber - 1 === 100) {
+          props.setUser((prev) => {
+            return {
+              ...prev,
+              scores: [...prev.scores, prev.moves],
+            };
+          });
+        }
         break;
     }
   }

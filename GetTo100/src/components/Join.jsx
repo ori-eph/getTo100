@@ -13,7 +13,7 @@ function Join(props) {
       username,
       password,
       active: true,
-      scores: null,
+      scores: [],
       id: users.lastId,
     };
 

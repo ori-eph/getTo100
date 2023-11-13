@@ -14,6 +14,7 @@ function Game(props) {
         <h3>
           {user.moves} {movesText}
         </h3>
+        <h4>{user.scores}</h4>
         <GameBtns
           index={props.index}
           setUser={setUser}
