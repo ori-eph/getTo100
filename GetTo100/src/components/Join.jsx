@@ -19,7 +19,13 @@ function Join(props) {
 
     users.list.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
-    props.setCurrentUsers((users) => [...users, newUser]);
+    props.setCurrentUsers((users) => {
+      const number = Math.floor(Math.random() * 100);
+      return [
+        ...users,
+        { ...newUser, startingNumber: number, currentNumber: number, moves: 0 },
+      ];
+    });
     props.toggle();
   }
 

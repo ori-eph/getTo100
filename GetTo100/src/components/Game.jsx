@@ -13,7 +13,7 @@ function Game(props) {
       }
     return false;
   }
-  props.playingUsers.map();
+  //   props.playingUsers.map();
   return (
     <div id={props.id} className="game-div">
       <div className="game-section">
