@@ -7,31 +7,25 @@ function Board(props) {
     <div id="board-grid">
       <Game
         id="game1"
-        users={props.playingUsers}
+        playingUsers={props.playingUsers}
         userId={
-          props.playingUsers[0] !== null ? props.playingUsers[2].id : "none"
+          props.playingUsers.length > 0 ? props.playingUsers[0].id : "none"
         }
       />
       <Game
         id="game2"
-        users={props.playingUsers}
-        userId={
-          props.playingUsers[1] !== null ? props.playingUsers[2].id : "none"
-        }
+        playingUsers={props.playingUsers}
+        userId={props.playingUsers[1] > 1 ? props.playingUsers[1].id : "none"}
       />
       <Game
         id="game3"
-        users={props.playingUsers}
-        userId={
-          props.playingUsers[2] !== null ? props.playingUsers[2].id : "none"
-        }
+        playingUsers={props.playingUsers}
+        userId={props.playingUsers[2] > 2 ? props.playingUsers[2].id : "none"}
       />
       <Game
         id="game4"
-        users={props.playingUsers}
-        userId={
-          props.playingUsers[3] !== null ? props.playingUsers[2].id : "none"
-        }
+        playingUsers={props.playingUsers}
+        userId={props.playingUsers[3] > 3 ? props.playingUsers[3].id : "none"}
       />
       <ScoreBoard id="scores" />
     </div>
