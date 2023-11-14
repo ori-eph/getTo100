@@ -15,7 +15,15 @@ btns-flex {
 }
 
 .myTurn {
-  background-color: rgba(145, 197, 240, 0.5);
+  /* background-color: rgba(145, 197, 240, 0.5); */
+  background: linear-gradient(
+    rgb(29, 101, 177, 0.3),
+    rgb(29, 101, 177, 0.3),
+    rgb(53, 143, 219, 0.3),
+    rgb(76, 185, 252, 0.3),
+    rgb(124, 190, 240, 0.3),
+    rgb(145, 198, 240, 0.3)
+  );
 }
 
 .waitingTurn {
@@ -64,6 +72,15 @@ btns-flex {
   -o-background-size: cover;
   background-size: cover;
   opacity: 0.8;
+}
+
+#new-game-btn {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  background-color: rgb(145, 198, 240);
+  width: 10vh;
+  height: 10vh;
 }
 /*
 rgb(29,101,177)

@@ -11,6 +11,27 @@ function Game(props) {
     props.setTurn();
   }
   const [imgUrl, setImgUrl] = useState("../public/images/closedDoor.png");
+
+  function logOutUser() {
+    const users = JSON.parse(localStorage.getItem("users"));
+    users.list = users.list.map((userInLc) => {
+      if (user.id === userInLc.id) {
+        return user;
+      } else {
+        return userInLc;
+      }
+    });
+    localStorage.setItem("users", JSON.stringify(users));
+    props.setPlayingUsers((prev) => [
+      ...prev.slice(0, props.index),
+      null,
+      ...prev.slice(props.index + 1),
+    ]);
+    if (!didWin) {
+      props.setTurn();
+    }
+  }
+
   return (
     <div
       id={props.id}
@@ -45,22 +66,14 @@ function Game(props) {
         )}
         <button
           id="quit-game-btn"
-          onClick={() => {
-            props.setPlayingUsers((prev) => [
-              ...prev.slice(0, props.index),
-              null,
-              ...prev.slice(props.index + 1),
-            ]);
-            if (!didWin) {
-              props.setTurn();
-            }
-          }}
+          onClick={logOutUser}
           onMouseOver={() => setImgUrl("../public/images/openDoor.png")}
           onMouseOut={() => setImgUrl("../public/images/closedDoor.png")}
         >
           <img src={imgUrl} id="quit-img1" />
         </button>
         <button
+          id="new-game-btn"
           onClick={() => {
             const number = Math.floor(Math.random() * 100);
             setDidWin(false);
