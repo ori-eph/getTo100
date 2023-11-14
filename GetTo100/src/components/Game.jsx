@@ -13,14 +13,16 @@ function Game(props) {
         <h3>
           {user.moves} {movesText}
         </h3>
-        <h4>{user.scores}</h4>
         <GameBtns
           index={props.index}
           setUser={setUser}
           user={user}
           setPlayingUsers={props.setPlayingUsers}
+          setTurn={props.setTurn}
         />
+        <h4>{user.scores}</h4>
         <button
+          id="quit-game-btn"
           onClick={() => {
             props.setPlayingUsers((prev) => [
               ...prev.slice(0, props.index),
