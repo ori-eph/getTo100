@@ -44,6 +44,7 @@ function Game(props) {
         moves: 0,
       };
     });
+    props.setTurn();
   }
 
   return (

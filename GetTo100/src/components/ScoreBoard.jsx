@@ -19,15 +19,6 @@ function ScoreBoard(props) {
     return userWithSameScore;
   }
 
-  //   function findUserWithMostMoves(users) {
-  //     const playerWithMostWins = usersWithoutNull(users).reduce(
-  //       (prev, current) => {
-  //         return prev.moves > current.moves ? prev : current;
-  //       }
-  //     );
-  //     return playerWithMostWins;
-  //   }
-
   function usersWithLeastMoves(users) {
     const movesArr = usersWithoutNull(users).map((user) => user.moves);
     const min = Math.min(...movesArr);
@@ -54,17 +45,6 @@ function ScoreBoard(props) {
     }
     return str;
   }
-
-  //   function findUserWithLeastMoves(users) {
-  //     const playerWithMostWins = usersWithoutNull(users).reduce(
-  //       (prev, current) => {
-  //         console.log("p " + prev);
-  //         console.log("c " + current);
-  //         return prev.moves < current.moves ? prev : current;
-  //       }
-  //     );
-  //     return playerWithMostWins;
-  //   }
 
   return (
     <div id="scores">

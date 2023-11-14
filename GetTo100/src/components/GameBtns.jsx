@@ -27,7 +27,6 @@ function GameBtns(props) {
     );
   });
 
-  console.log(buttonsJsx);
   return <div className="btns-flex">{buttonsJsx}</div>;
 }
 

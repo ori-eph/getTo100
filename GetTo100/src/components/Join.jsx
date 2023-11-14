@@ -7,19 +7,6 @@ function Join(props) {
   const [validationMsg, setValidationMsg] = useState("");
 
   function LoginUser(user) {
-    // const users = JSON.parse(localStorage.getItem("users"));
-    // users.lastId++;
-    // const newUser = {
-    //   username,
-    //   password,
-    //   active: true,
-    //   scores: [],
-    //   id: users.lastId,
-    // };
-
-    // users.list.push(newUser);
-    // localStorage.setItem("users", JSON.stringify(users));
-
     props.setPlayingUsers((playingUsers) => {
       const number = Math.floor(Math.random() * 100);
       const updatedUser = {

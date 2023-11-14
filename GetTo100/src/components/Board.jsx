@@ -8,6 +8,7 @@ function Board(props) {
 
   function giveTurnToNextPlayer() {
     let nextPIndex = -1;
+
     for (let i = turn + 1; i < props.playingUsers.length; i++) {
       if (props.playingUsers[i] !== null) {
         nextPIndex = i;
@@ -22,6 +23,7 @@ function Board(props) {
         }
       }
     }
+
     setTurn(nextPIndex);
   }
 
@@ -54,6 +56,7 @@ function Board(props) {
     <div id="board-grid">
       {gamesJsx}
       <ScoreBoard playingUsers={props.playingUsers} />
+      <p>{turn}</p>
     </div>
   );
 }
