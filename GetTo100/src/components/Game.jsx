@@ -5,6 +5,7 @@ function Game(props) {
   const [user, setUser] = useState(props.user);
   const [didWin, setDidWin] = useState(false);
   let movesText = user.moves == 1 ? "move" : "moves";
+  let style = didWin ? { display: "inline" } : { display: "none" };
   return (
     <div id={props.id} className="game-div">
       <div className="game-section">
@@ -19,6 +20,7 @@ function Game(props) {
           index={props.index}
           setUser={setUser}
           user={user}
+          setDidWin={setDidWin}
           setPlayingUsers={props.setPlayingUsers}
         />
         <button
@@ -35,17 +37,18 @@ function Game(props) {
         <button
           onClick={() => {
             const number = Math.floor(Math.random() * 100);
+            setDidWin(false);
             console.log(number);
-            // setUser((prev) => {
-            //   return {
-            //     ...prev,
-            //     startingNumber: number,
-            //     currentNumber: number,
-            //     moves: 0,
-            //   };
-            // });
+            setUser((prev) => {
+              return {
+                ...prev,
+                startingNumber: number,
+                currentNumber: number,
+                moves: 0,
+              };
+            });
           }}
-          style={didWin ? { display: "inline" } : { display: "none" }}
+          style={style}
         >
           New Game
         </button>

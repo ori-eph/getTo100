@@ -23,6 +23,7 @@ function GameBtn(props) {
               scores: [...prev.scores, prev.moves],
             };
           });
+          props.setDidWin(true);
         }
         break;
       case "*":
@@ -45,6 +46,7 @@ function GameBtn(props) {
               scores: [...prev.scores, prev.moves],
             };
           });
+          props.setDidWin(true);
         }
         break;
       case "+":
@@ -67,6 +69,7 @@ function GameBtn(props) {
               scores: [...prev.scores, prev.moves],
             };
           });
+          props.setDidWin(true);
         }
         break;
       case "-":
@@ -89,6 +92,7 @@ function GameBtn(props) {
               scores: [...prev.scores, prev.moves],
             };
           });
+          props.setDidWin(true);
         }
         break;
     }
