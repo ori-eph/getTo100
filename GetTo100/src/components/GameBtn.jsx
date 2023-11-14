@@ -1,6 +1,4 @@
 function GameBtn(props) {
-  // console.log(props.user);
-
   function doAction(oparator, number) {
     switch (oparator) {
       case "/":
@@ -105,7 +103,7 @@ function GameBtn(props) {
   return (
     <button
       onClick={() => doAction(props.oparator, props.number)}
-      disabled={props.didWin}
+      disabled={props.didWin || !props.myTurn}
     >{`${props.oparator}${props.number}`}</button>
   );
 }
