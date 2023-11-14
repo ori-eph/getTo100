@@ -1,5 +1,5 @@
 function GameBtn(props) {
-  console.log(props.user);
+  // console.log(props.user);
 
   function doAction(oparator, number) {
     switch (oparator) {
@@ -25,6 +25,7 @@ function GameBtn(props) {
           });
           props.setDidWin(true);
         }
+        props.setTurn();
         break;
       case "*":
         props.setUser((prev) => {
@@ -48,6 +49,7 @@ function GameBtn(props) {
           });
           props.setDidWin(true);
         }
+        props.setTurn();
         break;
       case "+":
         props.setUser((prev) => {
@@ -71,6 +73,7 @@ function GameBtn(props) {
           });
           props.setDidWin(true);
         }
+        props.setTurn();
         break;
       case "-":
         props.setUser((prev) => {
@@ -94,6 +97,7 @@ function GameBtn(props) {
           });
           props.setDidWin(true);
         }
+        props.setTurn();
         break;
     }
   }
