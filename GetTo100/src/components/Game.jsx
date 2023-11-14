@@ -4,13 +4,14 @@ import { useState } from "react";
 function Game(props) {
   const [user, setUser] = useState(props.user);
   const [didWin, setDidWin] = useState(false);
+  const [imgUrl, setImgUrl] = useState("../public/images/closedDoor.png");
   let movesText = user.moves == 1 ? "move" : "moves";
   let style = didWin ? { display: "inline" } : { display: "none" };
   let myTurn = props.turn === props.index ? true : false;
+
   if (didWin && myTurn) {
     props.setTurn();
   }
-  const [imgUrl, setImgUrl] = useState("../public/images/closedDoor.png");
 
   function logOutUser() {
     const users = JSON.parse(localStorage.getItem("users"));
@@ -30,6 +31,19 @@ function Game(props) {
     if (!didWin) {
       props.setTurn();
     }
+  }
+
+  function startNewGame() {
+    const number = Math.floor(Math.random() * 100);
+    setDidWin(false);
+    setUser((prev) => {
+      return {
+        ...prev,
+        startingNumber: number,
+        currentNumber: number,
+        moves: 0,
+      };
+    });
   }
 
   return (
@@ -64,6 +78,7 @@ function Game(props) {
         ) : (
           <h4>Scores: {user.scores.toString()}</h4>
         )}
+
         <button
           id="quit-game-btn"
           onClick={logOutUser}
@@ -72,22 +87,8 @@ function Game(props) {
         >
           <img src={imgUrl} id="quit-img1" />
         </button>
-        <button
-          id="new-game-btn"
-          onClick={() => {
-            const number = Math.floor(Math.random() * 100);
-            setDidWin(false);
-            setUser((prev) => {
-              return {
-                ...prev,
-                startingNumber: number,
-                currentNumber: number,
-                moves: 0,
-              };
-            });
-          }}
-          style={style}
-        >
+
+        <button id="new-game-btn" onClick={startNewGame} style={style}>
           New Game
         </button>
       </div>
