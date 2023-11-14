@@ -73,6 +73,14 @@
   background-color: rgb(76, 185, 252, 0.3);
 }
 
+.game-btn:disabled {
+  background-color: rgb(223 223 223);
+}
+.game-btn:disabled:hover {
+  background-color: rgb(223 223 223);
+  cursor: auto;
+}
+
 .isWiningGif {
   background: url("../public/images/confetty.gif") no-repeat center center fixed;
   -webkit-background-size: cover;
