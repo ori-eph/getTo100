@@ -1,12 +1,23 @@
 import Join from "./Join";
+import "../css/Header.css";
 
 function Header(props) {
   return (
     <header>
-      <h1 style={{ display: "inline" }}>Get To 100</h1>
+      <h1
+        style={{
+          fontWeight: "bolder",
+          fontSize: "50px",
+          marginBottom: "4vh",
+        }}
+      >
+        Get To 100
+      </h1>
       <button
+        id="join-btn"
         onClick={props.toggleShow}
         disabled={props.playingUsers.includes(null) ? "" : "true"}
+        style={{ fontSize: "16px" }}
       >
         Join
       </button>

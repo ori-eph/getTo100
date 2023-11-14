@@ -129,6 +129,8 @@ function GameBtn(props) {
 
   return (
     <button
+      style={{ margin: "0.3vw" }}
+      className="game-btn"
       onClick={() => doAction(props.operator, props.number)}
       disabled={props.didWin || !props.myTurn}
     >{`${props.operator}${props.number}`}</button>

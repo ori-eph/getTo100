@@ -1,5 +1,6 @@
 .join-form {
-  background-color: rgb(215, 186, 215);
+  background-color: rgb(145, 198, 240, 0.3);
+  height: 220px;
 }
 
 .popup {
@@ -26,7 +27,7 @@
 }
 
 .popup-inner h2 {
-  margin-top: 0;
+  margin-top: 6px;
 }
 
 .popup-inner label {
@@ -35,8 +36,11 @@
 }
 
 .popup-inner input {
-  width: 100%;
+  width: 30%;
+  display: block;
   padding: 5px;
+  margin: auto;
+  /* margin-left: 18px; */
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
@@ -44,9 +48,9 @@
 
 .popup-inner button[type="submit"],
 .popup-inner button[type="button"] {
-  background-color: #4caf50;
+  background-color: rgb(29, 101, 177, 0.7);
   color: white;
-  border: none;
+  border: 1px solid black;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -57,22 +61,21 @@
   border-radius: 5px;
 }
 
+button:hover {
+  background-color: rgb(29, 101, 177, 0.3);
+}
+
 .popup-inner button[type="submit"]:hover,
 .popup-inner button[type="button"]:hover {
-  background-color: #45a049;
+  background-color: rgba(29, 101, 177, 0.7);
 }
 
 .popup-inner button[type="submit"] {
   margin-top: 20px;
 }
 
-.popup-inner button[type="button"] {
-  margin-top: 20px;
-  background-color: #f44336;
-}
-
-.popup-inner button[type="button"]:hover {
-  background-color: #da190b;
+.popup-inner button[type="submit"]:hover {
+  background-color: rgba(43, 108, 178, 0.6);
 }
 
 .popup-inner button[type="submit"]:disabled {

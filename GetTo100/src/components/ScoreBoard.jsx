@@ -19,15 +19,6 @@ function ScoreBoard(props) {
     return userWithSameScore;
   }
 
-  //   function findUserWithMostMoves(users) {
-  //     const playerWithMostWins = usersWithoutNull(users).reduce(
-  //       (prev, current) => {
-  //         return prev.moves > current.moves ? prev : current;
-  //       }
-  //     );
-  //     return playerWithMostWins;
-  //   }
-
   function usersWithLeastMoves(users) {
     const movesArr = usersWithoutNull(users).map((user) => user.moves);
     const min = Math.min(...movesArr);
@@ -55,27 +46,20 @@ function ScoreBoard(props) {
     return str;
   }
 
-  //   function findUserWithLeastMoves(users) {
-  //     const playerWithMostWins = usersWithoutNull(users).reduce(
-  //       (prev, current) => {
-  //         console.log("p " + prev);
-  //         console.log("c " + current);
-  //         return prev.moves < current.moves ? prev : current;
-  //       }
-  //     );
-  //     return playerWithMostWins;
-  //   }
-
   return (
     <div id="scores">
       {props.playingUsers.findIndex((user) => user !== null) >= 0 ? (
         findPlayers(props.playingUsers) === 1 ? (
-          <h3>You are the only player right now</h3>
+          <div className="score-text">
+            <h3>You are the only player right now</h3>
+          </div>
         ) : strUsernames(usersWithLeastMoves(props.playingUsers)) ===
           strUsernames(usersWithMostMoves(props.playingUsers)) ? (
-          <h3>There is a tie in moves</h3>
+          <div className="score-text">
+            <h3>There is a tie in moves</h3>
+          </div>
         ) : (
-          <div>
+          <div className="score-text">
             <h4>
               {strUsernames(usersWithMostMoves(props.playingUsers))} did the
               most moves
