@@ -6,8 +6,12 @@ function Game(props) {
   const [didWin, setDidWin] = useState(false);
   let movesText = user.moves == 1 ? "move" : "moves";
   let style = didWin ? { display: "inline" } : { display: "none" };
+  let myTurn = props.turn === props.index ? true : false;
   return (
-    <div id={props.id} className="game-div">
+    <div
+      id={props.id}
+      className={"game-div " + (myTurn ? "myTurn" : "waitingTurn")}
+    >
       <div className="game-section">
         <h2>{user.username}&apos;s game</h2>
         <h3>Started with {user.startingNumber}</h3>
@@ -16,6 +20,7 @@ function Game(props) {
           {user.moves} {movesText}
         </h3>
         <GameBtns
+          disabled={myTurn}
           index={props.index}
           setUser={setUser}
           user={user}

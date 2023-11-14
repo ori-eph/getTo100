@@ -13,6 +13,7 @@ function GameBtns(props) {
         setTurn={props.setTurn}
         setDidWin={props.setDidWin}
         oparator="/"
+        disabled={props.disabled}
       />
       <GameBtn
         setPlayingUsers={props.setPlayingUsers}
@@ -23,6 +24,7 @@ function GameBtns(props) {
         index={props.index}
         setTurn={props.setTurn}
         oparator="*"
+        disabled={props.disabled}
       />
       <GameBtn
         setPlayingUsers={props.setPlayingUsers}
@@ -33,6 +35,7 @@ function GameBtns(props) {
         setTurn={props.setTurn}
         oparator="+"
         setDidWin={props.setDidWin}
+        disabled={props.disabled}
       />
       <GameBtn
         index={props.index}
@@ -43,6 +46,7 @@ function GameBtns(props) {
         setTurn={props.setTurn}
         oparator="-"
         setDidWin={props.setDidWin}
+        disabled={props.disabled}
       />
     </div>
   );

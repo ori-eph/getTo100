@@ -6,36 +6,34 @@ function Join(props) {
   const [password, setPassword] = useState("");
   const [validationMsg, setValidationMsg] = useState("");
 
-  function submitForm() {
-    const users = JSON.parse(localStorage.getItem("users"));
-    users.lastId++;
-    const newUser = {
-      username,
-      password,
-      active: true,
-      scores: [],
-      id: users.lastId,
-    };
+  function LoginUser(user) {
+    // const users = JSON.parse(localStorage.getItem("users"));
+    // users.lastId++;
+    // const newUser = {
+    //   username,
+    //   password,
+    //   active: true,
+    //   scores: [],
+    //   id: users.lastId,
+    // };
 
-    users.list.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
+    // users.list.push(newUser);
+    // localStorage.setItem("users", JSON.stringify(users));
 
-    props.setPlayingUsers((users) => {
+    props.setPlayingUsers((playingUsers) => {
       const number = Math.floor(Math.random() * 100);
       const updatedUser = {
-        ...newUser,
+        ...user,
         startingNumber: number,
         currentNumber: number,
         moves: 0,
       };
 
-      const index = users.findIndex((user) => user === null);
-
+      const index = playingUsers.findIndex((user) => user === null);
       if (index !== -1) {
-        users[index] = updatedUser;
+        playingUsers[index] = updatedUser;
       }
-
-      return users;
+      return playingUsers;
     });
 
     props.toggle();
@@ -50,11 +48,13 @@ function Join(props) {
     const users = JSON.parse(localStorage.getItem("users")).list;
     for (const user of users) {
       if (user.username === username) {
-        setValidationMsg("user already exists.");
-        return;
+        if (user.password === password) {
+          LoginUser(user);
+          break;
+        }
       }
     }
-    submitForm();
+    setValidationMsg("username or password not correct.");
   }
 
   return (

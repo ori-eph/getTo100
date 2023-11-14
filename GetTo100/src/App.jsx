@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Board from "./components/Board";
+import { users as usersData } from "./data";
 
 function App() {
   const [playingUsers, setPlayingUsers] = useState([null, null, null, null]);
@@ -9,8 +10,8 @@ function App() {
   function resetLocalStorage() {
     if (!localStorage.getItem("users")) {
       const users = {
-        list: [],
-        lastId: 0,
+        list: usersData,
+        lastId: usersData.length,
       };
       localStorage.setItem("users", JSON.stringify(users));
     }

@@ -1,6 +1,4 @@
 function GameBtn(props) {
-  // console.log(props.user);
-
   function doAction(oparator, number) {
     switch (oparator) {
       case "/":
