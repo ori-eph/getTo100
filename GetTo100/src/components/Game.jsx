@@ -7,6 +7,9 @@ function Game(props) {
   let movesText = user.moves == 1 ? "move" : "moves";
   let style = didWin ? { display: "inline" } : { display: "none" };
   let myTurn = props.turn === props.index ? true : false;
+  if (didWin && myTurn) {
+    props.setTurn();
+  }
   const [imgUrl, setImgUrl] = useState("../public/images/closedDoor.png");
   return (
     <div
@@ -14,13 +17,13 @@ function Game(props) {
       className={
         "game-div " +
         (myTurn ? "myTurn" : "waitingTurn") +
-        (didWin ? "isWiningGif" : "")
+        (didWin ? " isWiningGif" : "")
       }
     >
       <div className="game-section">
         <h2>{user.username}&apos;s game</h2>
         <h3>Started with {user.startingNumber}</h3>
-        <h1 className={didWin && "winAnimation"}>{user.currentNumber}</h1>
+        <h1 className={didWin ? "winAnimation" : ""}>{user.currentNumber}</h1>
         <h3>
           {user.moves} {movesText}
         </h3>
@@ -48,7 +51,9 @@ function Game(props) {
               null,
               ...prev.slice(props.index + 1),
             ]);
-            props.setTurn();
+            if (!didWin) {
+              props.setTurn();
+            }
           }}
           onMouseOver={() => setImgUrl("../public/images/openDoor.png")}
           onMouseOut={() => setImgUrl("../public/images/closedDoor.png")}
