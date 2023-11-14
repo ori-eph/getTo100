@@ -36,6 +36,7 @@ function ScoreBoard(props) {
   }
 
   function usersWithMostMoves(users) {
+    console.log(users);
     const movesArr = usersWithoutNull(users).map((user) => user.moves);
     console.log(movesArr);
     const max = Math.max(...movesArr);
