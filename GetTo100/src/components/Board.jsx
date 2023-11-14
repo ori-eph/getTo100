@@ -53,7 +53,7 @@ function Board(props) {
   return (
     <div id="board-grid">
       {gamesJsx}
-      <ScoreBoard id="scores" />
+      <ScoreBoard playingUsers={props.playingUsers} />
       <p>{turn}</p>
     </div>
   );
