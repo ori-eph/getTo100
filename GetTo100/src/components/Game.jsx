@@ -6,6 +6,7 @@ function Game(props) {
   const [didWin, setDidWin] = useState(false);
   let movesText = user.moves == 1 ? "move" : "moves";
   let style = didWin ? { display: "inline" } : { display: "none" };
+  const [imgUrl, setImgUrl] = useState("../public/images/closedDoor.png");
   return (
     <div id={props.id} className="game-div">
       <div className="game-section">
@@ -19,11 +20,17 @@ function Game(props) {
           index={props.index}
           setUser={setUser}
           user={user}
+          didWin={didWin}
           setDidWin={setDidWin}
           setPlayingUsers={props.setPlayingUsers}
           setTurn={props.setTurn}
         />
-        <h4>{user.scores}</h4>
+
+        {user.scores.length === 0 ? (
+          <h4>No scores yet</h4>
+        ) : (
+          <h4>Scores: {user.scores.toString()}</h4>
+        )}
         <button
           id="quit-game-btn"
           onClick={() => {
@@ -33,14 +40,15 @@ function Game(props) {
               ...prev.slice(props.index + 1),
             ]);
           }}
+          onMouseOver={() => setImgUrl("../public/images/openDoor.png")}
+          onMouseOut={() => setImgUrl("../public/images/closedDoor.png")}
         >
-          Quit
+          <img src={imgUrl} id="quit-img1" />
         </button>
         <button
           onClick={() => {
             const number = Math.floor(Math.random() * 100);
             setDidWin(false);
-            console.log(number);
             setUser((prev) => {
               return {
                 ...prev,

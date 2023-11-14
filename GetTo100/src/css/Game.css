@@ -13,3 +13,7 @@ btns-flex {
   border-radius: 10px;
   position: relative;
 }
+
+#quit-img1 {
+  height: 6vh;
+}

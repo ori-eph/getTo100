@@ -105,6 +105,7 @@ function GameBtn(props) {
   return (
     <button
       onClick={() => doAction(props.oparator, props.number)}
+      disabled={props.didWin}
     >{`${props.oparator}${props.number}`}</button>
   );
 }
