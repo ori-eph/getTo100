@@ -61,10 +61,6 @@
   border-radius: 5px;
 }
 
-button:hover {
-  background-color: rgb(29, 101, 177, 0.3);
-}
-
 .popup-inner button[type="submit"]:hover,
 .popup-inner button[type="button"]:hover {
   background-color: rgba(29, 101, 177, 0.7);
