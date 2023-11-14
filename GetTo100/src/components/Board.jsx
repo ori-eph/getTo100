@@ -56,7 +56,6 @@ function Board(props) {
     <div id="board-grid">
       {gamesJsx}
       <ScoreBoard playingUsers={props.playingUsers} />
-      <p>{turn}</p>
     </div>
   );
 }
