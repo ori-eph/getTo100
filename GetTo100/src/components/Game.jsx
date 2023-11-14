@@ -77,7 +77,14 @@ function Game(props) {
         {user.scores.length === 0 ? (
           <h4>No scores yet</h4>
         ) : (
-          <h4>Scores: {user.scores.toString()}</h4>
+          <h4>
+            Scores: {user.scores.toString()} ~ Average of&nbsp;
+            {(
+              user.scores.reduce((a, b) => {
+                return a + b;
+              }, 0) / user.scores.length
+            ).toFixed(2)}
+          </h4>
         )}
 
         <button

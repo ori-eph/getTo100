@@ -50,12 +50,16 @@ function ScoreBoard(props) {
     <div id="scores">
       {props.playingUsers.findIndex((user) => user !== null) >= 0 ? (
         findPlayers(props.playingUsers) === 1 ? (
-          <h3>You are the only player right now</h3>
+          <div className="score-text">
+            <h3>You are the only player right now</h3>
+          </div>
         ) : strUsernames(usersWithLeastMoves(props.playingUsers)) ===
           strUsernames(usersWithMostMoves(props.playingUsers)) ? (
-          <h3>There is a tie in moves</h3>
+          <div className="score-text">
+            <h3>There is a tie in moves</h3>
+          </div>
         ) : (
-          <div>
+          <div className="score-text">
             <h4>
               {strUsernames(usersWithMostMoves(props.playingUsers))} did the
               most moves

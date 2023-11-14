@@ -1,0 +1,18 @@
+header {
+  position: absolute;
+  left: 4vw;
+}
+
+#join-btn {
+  background-color: rgb(29, 101, 177, 0.3);
+  font-weight: bold;
+  width: 20vh;
+}
+
+#join-btn:hover {
+  border: 2px solid black;
+}
+
+#join-btn:active {
+  transform: translateY(4px);
+}

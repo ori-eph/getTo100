@@ -48,7 +48,7 @@ function Join(props) {
     <div className="popup">
       <div className="popup-inner">
         <form className="join-form" onSubmit={validateForm}>
-          <h2>Join</h2>
+          <h2 style={{ fontSize: "18px", marginTop: "4px" }}>Join</h2>
           <input
             type="text"
             placeholder="player name..."
@@ -68,7 +68,9 @@ function Join(props) {
           <p className="validationMsg">{validationMsg}</p>
           <button type="submit">Submit</button>
         </form>
-        <button onClick={props.toggle}>✗</button>
+        <button onClick={props.toggle} style={{ marginTop: "9px" }}>
+          ✗
+        </button>
       </div>
     </div>
   );

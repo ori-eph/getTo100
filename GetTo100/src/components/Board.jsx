@@ -35,7 +35,7 @@ function Board(props) {
           className="game-div emptyGame"
           key={`game${index}`}
         >
-          <h1>no player yet...</h1>
+          <h2>no player yet...</h2>
         </div>
       );
     }

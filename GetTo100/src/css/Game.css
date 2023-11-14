@@ -1,4 +1,4 @@
-btns-flex {
+#btns-flex {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,8 +7,8 @@ btns-flex {
 .game-div {
   margin: auto;
   text-align: center;
-  height: 42vh;
-  width: 30vw;
+  height: 39vh;
+  width: 21vw;
   border: 1px solid black;
   border-radius: 10px;
   position: relative;
@@ -63,6 +63,14 @@ btns-flex {
   height: 100%;
   opacity: 0.5;
   z-index: -1;
+}
+
+.game-btn {
+  background-color: rgba(124, 190, 240, 0.791);
+}
+
+.game-btn:hover {
+  background-color: rgb(76, 185, 252, 0.3);
 }
 
 .isWiningGif {
